@@ -84,14 +84,14 @@ function cleanXml() {
     // 1. Đổi "" -> "
     text = text.replace(/""/g, '"');
 
-    // 2. Xoá dòng chứa "[remove_start]
-    text = text.replace(/^.*"[remove_start].*$\n?/gm, '');
+    // 2. Xoá dòng chứa "remove
+    text = text.replace(/^.*"remove.*$\n?/gm, '');
 
-     // 3. Xoá dòng chứa [remove_start] lần nữa nếu còn sót lại
-    text = text.replace(/^.*[remove_start].*$\n?/gm, '');
+    // 3. Xoá remove"
+    text = text.replace(/remove"/g, '');
 
-    // 3. Xoá [remove_end]"
-    text = text.replace(/[remove_end]/g, '');
+    // 3. Xoá dòng chứa remove lần nữa nếu còn sót lại
+    text = text.replace(/^.*remove.*$\n?/gm, '');
 
     document.getElementById("output").value = text.trim();
 }
@@ -108,3 +108,4 @@ function copyOutput() {
 </body>
 
 </html>
+
