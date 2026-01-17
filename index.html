@@ -81,17 +81,17 @@
 function cleanXml() {
     let text = document.getElementById("input").value;
 
-    // 1. Đổi "" -> "
+    // bước 1: đổi "" -> "
     text = text.replace(/""/g, '"');
 
-    // 2. Xoá dòng chứa "remove
-    text = text.replace(/^.*"remove.*$\n?/gm, '');
+    // bước 2: xóa "remove
+    text = text.replace(/"remove/g, '');
 
-    // 3. Xoá remove"
+    // bước 3: xóa remove"
     text = text.replace(/remove"/g, '');
 
-    // 3. Xoá dòng chứa remove lần nữa nếu còn sót lại
-    text = text.replace(/^.*remove.*$\n?/gm, '');
+    // bước 4: xóa remove
+    text = text.replace(/remove/g, '');
 
     document.getElementById("output").value = text.trim();
 }
@@ -108,4 +108,5 @@ function copyOutput() {
 </body>
 
 </html>
+
 
